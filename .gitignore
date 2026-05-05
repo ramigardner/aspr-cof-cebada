@@ -1,0 +1,4 @@
+cof_cebada_private.pem
+__pycache__/
+*.pyc
+.env
