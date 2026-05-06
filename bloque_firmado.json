@@ -1,8 +1,8 @@
 {
   "bloque": {
     "partido": "TRES ARROYOS",
-    "lat": -34.524939,
-    "lon": -58.523848,
+    "lat": -38.376,
+    "lon": -60.279,
     "campana": "2024",
     "cultivo": "CEBADA",
     "emisor": "ASPR-COF",
@@ -14,18 +14,19 @@
       "Indicador hidrico documentado"
     ],
     "indices": {
-      "NDVI": 0.1574,
-      "BSI": 0.114,
-      "NDMI": -0.1071
+      "NDVI": 0.1427,
+      "BSI": 0.1281,
+      "NDMI": -0.1213
     },
     "verificaciones": {
       "rotacion_verificada": "ALERTA",
       "calidad_suelo": "PASS",
       "estres_hidrico": "ALERTA"
     },
-    "timestamp_utc": "2026-05-06T10:00:00.000000+00:00"
+    "timestamp_utc": "2026-05-06T01:12:25.232326+00:00"
   },
-  "hash_sha256": "5b019ca85678f5d713f1617fb9f0ac27c72b2e8cf161e9b4ece7da6d9422a8ca",
-  "signature_ed25519": "SIMULATED_SIGNATURE_REGENERATIVE_BARLEY_2026",
-  "public_key_fingerprint": "SIMULATED_FINGERPRINT_ASPR_2026"
+  "hash_sha256": "c060cad068073cd608228a1fb2486f795833d5c0c434132230a7ee43592d65ac",
+  "signature_ed25519": "tldQKjoDSYPIZ+brv2KNvd90KN4Bgy8Po61PTUxSizgAqTivsMxzwlxIqM/hkgcn5PJWQ8cw7VHLc+OZzK7/AA==",
+  "public_key_fingerprint": "a30e2ee0c25ed964f66298b0d138ff61b687910f62a278d046d5cbc4c0c494e1",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAtr9+xWHtnUsf1VkUZ+kIJLXf80KrX23XbX1b55eLCgM=\n-----END PUBLIC KEY-----\n"
 }
