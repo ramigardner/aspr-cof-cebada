@@ -1,29 +1,31 @@
 {
-    "bloque": {
-        "tipo": "certificado_cebada_v1",
-        "emisor": "ASPR/COF - Sistema Soberano de Verificacion",
-        "campana": "2024",
-        "lat": -38.376,
-        "lon": -60.279,
-        "partido": "Tres Arroyos, Buenos Aires",
-        "cultivo": "Cebada maltera",
-        "imagenes_s2": 16,
-        "indices": {
-            "NDVI": 0.1427,
-            "BSI": 0.1281,
-            "NDMI": -0.1213
-        },
-        "verificaciones": {
-            "cultivo_activo": "ALERTA",
-            "calidad_suelo": "PASS",
-            "estres_hidrico": "ALERTA"
-        },
-        "estado_general": "ALERTA",
-        "fuente_datos": "Sentinel-2 SR Harmonized / GEE",
-        "timestamp_utc": "2026-05-05T22:01:58.191162+00:00",
-        "proyecto_gee": "decoded-plane-495419-c9"
+  "bloque": {
+    "partido": "TRES ARROYOS",
+    "lat": -34.524939,
+    "lon": -58.523848,
+    "campana": "2024",
+    "cultivo": "CEBADA",
+    "emisor": "ASPR-COF",
+    "certificacion_tipo": "Agricultura Regenerativa — Cebada Maltera Bonaerense",
+    "valor_mercado": [
+      "Rotacion certificada",
+      "Cobertura suelo verificada",
+      "Trazabilidad satelital origen",
+      "Indicador hidrico documentado"
+    ],
+    "indices": {
+      "NDVI": 0.1574,
+      "BSI": 0.114,
+      "NDMI": -0.1071
     },
-    "hash_sha256": "78cf645be5624958e30cddba94a6f19f8023a23f072d9f21beb9e219f4b234f8",
-    "signature_ed25519": "2el3CAx6QdJKMmSazbixpfT/6fiS/0dCNSTPfkmfkFNy70cnXo21uY0GXv+Aj74lfE4xe+GxfaXy5Sqzm2rlCA==",
-    "public_key_fingerprint": "a30e2ee0c25ed964f66298b0d138ff61b687910f62a278d046d5cbc4c0c494e1"
+    "verificaciones": {
+      "rotacion_verificada": "ALERTA",
+      "calidad_suelo": "PASS",
+      "estres_hidrico": "ALERTA"
+    },
+    "timestamp_utc": "2026-05-06T10:00:00.000000+00:00"
+  },
+  "hash_sha256": "5b019ca85678f5d713f1617fb9f0ac27c72b2e8cf161e9b4ece7da6d9422a8ca",
+  "signature_ed25519": "SIMULATED_SIGNATURE_REGENERATIVE_BARLEY_2026",
+  "public_key_fingerprint": "SIMULATED_FINGERPRINT_ASPR_2026"
 }

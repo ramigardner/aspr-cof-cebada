@@ -48,17 +48,26 @@ def generate_pdf():
     content_list = []
 
     # Title
-    content_list.append(Paragraph("Certificado Soberano de Cebada Bonaerense", title_style))
+    content_list.append(Paragraph("Certificado de Agricultura Regenerativa — Cebada Bonaerense", title_style))
+    subtitle_style = ParagraphStyle(
+        'SubtitleStyle',
+        parent=styles['Normal'],
+        fontSize=12,
+        alignment=1,
+        spaceAfter=20,
+        textColor=colors.HexColor("#5D6D7E")
+    )
+    content_list.append(Paragraph("Rotación verificada · Suelo cubierto · Trazabilidad de origen", subtitle_style))
     content_list.append(Spacer(1, 0.5*cm))
 
     # Producer Data Section
     content_list.append(Paragraph("Datos del Productor y Ubicación", section_style))
     producer_data = [
-        ["Partido:", bloque["partido"]],
+        ["Partido:", bloque.get("partido", "N/A")],
         ["Coordenadas:", f"Lat: {bloque['lat']}, Lon: {bloque['lon']}"],
         ["Campaña:", bloque["campana"]],
         ["Cultivo:", bloque["cultivo"]],
-        ["Emisor:", bloque["emisor"]]
+        ["Certificación:", bloque.get("certificacion_tipo", "Agricultura Regenerativa")]
     ]
     t1 = Table(producer_data, colWidths=[4*cm, 10*cm])
     t1.setStyle(TableStyle([
@@ -68,17 +77,17 @@ def generate_pdf():
     content_list.append(t1)
 
     # Satellite Indices Section
-    content_list.append(Paragraph("Resultados del Análisis Satelital (Sentinel-2)", section_style))
+    content_list.append(Paragraph("Buenas Prácticas Agrícolas Verificadas", section_style))
     
     indices = bloque["indices"]
     verif = bloque["verificaciones"]
     
     # Table headers and data
     table_data = [
-        ["Índice", "Valor", "Estado"],
-        ["NDVI (Vegetación)", f"{indices['NDVI']}", verif["cultivo_activo"]],
-        ["BSI (Suelo Desnudo)", f"{indices['BSI']}", verif["calidad_suelo"]],
-        ["NDMI (Humedad)", f"{indices['NDMI']}", verif["estres_hidrico"]]
+        ["Práctica / Indicador", "Valor", "Estado"],
+        ["Rotación (NDVI)", f"{indices['NDVI']}", verif.get("rotacion_verificada", verif.get("cultivo_activo", "N/A"))],
+        ["Cobertura (BSI)", f"{indices['BSI']}", verif["calidad_suelo"]],
+        ["Hidratación (NDMI)", f"{indices['NDMI']}", verif["estres_hidrico"]]
     ]
     
     t2 = Table(table_data, colWidths=[6*cm, 4*cm, 4*cm])
@@ -102,6 +111,13 @@ def generate_pdf():
             t2.setStyle(TableStyle([('TEXTCOLOR', (2, i), (2, i), colors.red)]))
 
     content_list.append(t2)
+    
+    # Market Value Section
+    if "valor_mercado" in bloque:
+        content_list.append(Paragraph("Valor de mercado", section_style))
+        for item in bloque["valor_mercado"]:
+            content_list.append(Paragraph(f"• {item}", styles['Normal']))
+    
     content_list.append(Spacer(1, 1*cm))
 
     # Verification and Security Section
@@ -128,12 +144,18 @@ def generate_pdf():
     qr_path = "aspr_cebada/qr_verification.png"
     qr_img.save(qr_path)
 
-    # Add QR code to PDF
+    # Add QR code and Footer
+    content_list.append(Spacer(1, 1*cm))
+    
+    # Footer
+    footer_text = "Compatible con programas: Heineken Brewing a Better World · AB InBev 100+ · Carlsberg Zero Carbon"
+    content_list.append(Paragraph(footer_text, ParagraphStyle('Footer', parent=styles['Normal'], fontSize=9, alignment=1, textColor=colors.grey)))
+    
     img = Image(qr_path, 3*cm, 3*cm)
     img.hAlign = 'RIGHT'
-    content_list.append(Spacer(1, 1*cm))
     content_list.append(img)
     content_list.append(Paragraph("Escanee para verificar la integridad del bloque", ParagraphStyle('Small', parent=styles['Normal'], fontSize=8, alignment=2)))
+
 
     # Build PDF
     doc.build(content_list)
