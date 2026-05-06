@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPR/COF — Documentación Técnica Cebada Bonaerense</title>
+    <style>
+        :root {
+            --bg-color: #fdfaf6;
+            --primary-color: #6b8e23; /* Olive Drab */
+            --secondary-color: #a3b18a; /* Sage Green */
+            --text-color: #4a4a4a;
+            --accent-color: #e9edc9;
+            --card-bg: #ffffff;
+            --border-color: #ccd5ae;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            padding: 60px 20px;
+            background-color: var(--accent-color);
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+
+        main {
+            max-width: 800px;
+            width: 90%;
+            padding: 40px 0;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-weight: 400;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metric-card {
+            background-color: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        code {
+            background-color: var(--accent-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+
+        .code-block {
+            display: block;
+            padding: 15px;
+            overflow-x: auto;
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            background-color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .diligence {
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            background: #f1f3e0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Certificación de Agricultura Regenerativa</h1>
+        <p>Sistema Soberano de Verificación Satelital — Piloto Bonaerense 2026</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Enfoque Regenerativo</h2>
+            <p>En esta sesión, hemos evolucionado el sistema de certificación para centrarse en la <strong>Agricultura Regenerativa</strong>. Dado que la pampa bonaerense no presenta riesgos de deforestación críticos, el valor del certificado ahora reside en documentar prácticas sostenibles verificables.</p>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Rotación (NDVI)</div>
+                    <div class="metric-value">0.1427</div>
+                    <p>Mínimo detectado para asegurar cobertura.</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Suelo (BSI)</div>
+                    <div class="metric-value">0.1281</div>
+                    <p>Índice de suelo desnudo bajo control.</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-card">
+                        <div class="metric-label">Humedad (NDMI)</div>
+                        <div class="metric-value">-0.1213</div>
+                        <p>Estado hídrico del cultivo monitoreado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Integridad Criptográfica</h2>
+            <p>Se ha implementado una firma digital real utilizando el algoritmo <strong>Ed25519</strong>, eliminando los valores simulados anteriores. Cada certificado está vinculado a un bloque de datos inmutable.</p>
+            <p><strong>Fingerprint de Clave Pública:</strong></p>
+            <code class="code-block">a30e2ee0c25ed964f66298b0d138ff61b687910f62a278d046d5cbc4c0c494e1</code>
+            <p><strong>Firma del Bloque actual:</strong></p>
+            <code class="code-block">tldQKjoDSYPIZ+brv2KNvd90KN4Bgy8Po61PTUxSizgAqTivsMxzwlxIqM/hkgcn5PJWQ8cw7VHLc+OZzK7/AA==</code>
+        </section>
+
+        <section>
+            <h2>Arquitectura del Sistema</h2>
+            <ol>
+                <li><strong>Google Earth Engine (GEE):</strong> Procesa imágenes Sentinel-2 SR para obtener índices biofísicos.</li>
+                <li><strong>Flask Backend:</strong> Orquesta la verificación y genera el bloque de datos técnico.</li>
+                <li><strong>Criptografía Ed25519:</strong> Firma el bloque utilizando claves soberanas almacenadas de forma segura.</li>
+                <li><strong>ReportLab:</strong> Genera el certificado en PDF con código QR de verificación integrado.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Declaración de Diligencia</h2>
+            <div class="diligence">
+                "Este sistema opera bajo un modelo de verificación soberana. Los datos satelitales son procesados directamente desde fuentes oficiales (Copernicus/ESA) y firmados digitalmente por la entidad emisora (ASPR-COF) para garantizar que la información no ha sido alterada desde su origen hasta la emisión del certificado."
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 ASPR/COF — Sistema de Verificación Satelital Soberano.
+    </footer>
+
+</body>
+</html>
